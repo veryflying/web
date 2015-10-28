@@ -1,7 +1,7 @@
 #coding=gbk
 import web
 import os
-from source import word
+import word
 
 urls = (
     '/hello/(.*)', 'Hello',
