@@ -23,7 +23,8 @@ class Hello:
         web.setcookie('cookie', 2, 100, secure=True)
         cookies = web.cookies()
         print cookies
-        return 'Hello,' + name + '!'
+        hello = web.template.frender('hello.html')
+        return hello(name)
 
 
 class Translate:
