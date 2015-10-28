@@ -1,10 +1,12 @@
+#coding=gbk
 import web
 import os, sys
 import test
 
 urls = (
     '/hello/(.*)', 'Hello',
-    '/t/(.*)', 'translate'
+    '/t/(.*)', 'Translate',
+
 )
 
 app = web.application(urls, globals())
@@ -33,7 +35,9 @@ class Translate:
         if not name:
             name = 'a'
         result = test.get_interp(name)
-        return result
+        tmpl = web.template.frender('tmpl.html')
+        return tmpl({'word': name,
+                     'meaning': result})
 
 
 if __name__ == "__main__":
