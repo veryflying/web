@@ -22,7 +22,7 @@ class Hello:
         web.setcookie('cookie', 2, 100, secure=True)
         cookies = web.cookies()
         print cookies
-        hello = web.template.frender('../template/hello.html')
+        hello = web.template.frender('hello.html')
         return hello(name)
 
 
@@ -35,7 +35,7 @@ class Translate:
         if not name:
             name = 'a'
         result = word.get_interp(name)
-        tmpl = web.template.frender('../template/tmpl.html')
+        tmpl = web.template.frender('tmpl.html')
         return tmpl({'word': name,
                      'meaning': result})
 
