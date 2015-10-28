@@ -1,1 +1,1 @@
-web: python h.py ${PORT}
+web: python source/main.py ${PORT}

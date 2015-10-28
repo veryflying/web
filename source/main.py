@@ -1,12 +1,11 @@
 #coding=gbk
 import web
-import os, sys
-import test
+import os
+from source import word
 
 urls = (
     '/hello/(.*)', 'Hello',
     '/t/(.*)', 'Translate',
-
 )
 
 app = web.application(urls, globals())
@@ -23,7 +22,7 @@ class Hello:
         web.setcookie('cookie', 2, 100, secure=True)
         cookies = web.cookies()
         print cookies
-        hello = web.template.frender('hello.html')
+        hello = web.template.frender('../template/hello.html')
         return hello(name)
 
 
@@ -35,8 +34,8 @@ class Translate:
     def GET(self, name):
         if not name:
             name = 'a'
-        result = test.get_interp(name)
-        tmpl = web.template.frender('tmpl.html')
+        result = word.get_interp(name)
+        tmpl = web.template.frender('../template/tmpl.html')
         return tmpl({'word': name,
                      'meaning': result})
 
