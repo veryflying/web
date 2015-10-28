@@ -1,0 +1,4 @@
+pycrypto==2.6.1
+requests==2.8.0
+web.py==0.37
+wheel==0.24.0
