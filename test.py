@@ -48,18 +48,18 @@ def file_itp(input_file, output_file):
 if __name__ == '__main__':
     file_itp(INPUT_FILE, OUTPUT_FILE)
 
-import requests
-from Crypto.Hash import MD5
-
-
-if __name__ == '__main__':
-    url = 'http://www.sei.ecnu.edu.cn/Data/View/1617'
-    r = requests.get(url)
-    h = MD5.new(r.content)
-    temp = bytearray(100000)
-    with open('t2', 'r') as f:
-        f.readinto(temp)
-        # print temp
-        h.update(temp)
-    print h.hexdigest()
+# import requests
+# from Crypto.Hash import MD5
+#
+#
+# if __name__ == '__main__':
+#     url = 'http://www.sei.ecnu.edu.cn/Data/View/1617'
+#     r = requests.get(url)
+#     h = MD5.new(r.content)
+#     temp = bytearray(100000)
+#     with open('t2', 'r') as f:
+#         f.readinto(temp)
+#         # print temp
+#         h.update(temp)
+#     print h.hexdigest()
 
