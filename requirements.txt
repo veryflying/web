@@ -1,5 +1,4 @@
 BeautifulSoup==3.2.1
-numpy==1.9.2
 Pillow==2.9.0
 pytesseract==0.1.6
 requests==2.8.1
