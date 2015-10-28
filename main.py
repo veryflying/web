@@ -6,7 +6,7 @@ import word
 urls = (
     '/hello/(.*)', 'Hello',
     '/t/(.*)', 'Translate',
-    '', 'Index'
+    '/', 'Index'
 )
 
 app = web.application(urls, globals())
