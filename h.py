@@ -21,7 +21,7 @@ class Hello:
         web.setcookie('cookie', 2, 100, secure=True)
         cookies = web.cookies()
         print cookies
-        return 'Hello, 1' + name + '!'
+        return 'Hello,' + name + '!'
 
 
 class Translate:
