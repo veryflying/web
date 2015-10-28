@@ -6,6 +6,7 @@ import word
 urls = (
     '/hello/(.*)', 'Hello',
     '/t/(.*)', 'Translate',
+    '', 'Index'
 )
 
 app = web.application(urls, globals())
@@ -38,6 +39,16 @@ class Translate:
         tmpl = web.template.frender('tmpl.html')
         return tmpl({'word': name,
                      'meaning': result})
+
+
+class Index:
+    def __init__(self):
+        pass
+
+
+    def GET(self):
+        index = web.template.frender('index.html')
+        return index()
 
 
 if __name__ == "__main__":
