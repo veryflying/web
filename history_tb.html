@@ -5,10 +5,12 @@ $def with (result)
     <title>历史价格</title>
 </head>
 <body>
-<div style="margin-left:600px; margin-top: 100px;">
+<div style="text-align: center; margin-top: 100px;">
 $if result is None:
-    <form method="get">
+    <div style="text-align: center">请输入想查询历史价格的商品网址</div>
+    <form method="get" style="margin-top: 10px;">
         <input type="text" name="id">
+
         <input type="submit" value="提交">
     </form>
 $else:

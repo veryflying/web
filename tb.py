@@ -1,6 +1,11 @@
 import requests
 import re
 
+USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) ' \
+              'AppleWebKit/537.36 (KHTML, like Gecko) ' \
+              'Chrome/44.0.2403.125 Safari/537.36'
+
+
 def get_tm_prices_from_third(tmall_id):
     try:
         r = requests.get('http://www.xitie.com/tmall.php?no=%s'%tmall_id)
@@ -16,7 +21,7 @@ def get_tm_prices_from_third(tmall_id):
         return result
 
 def get_from_mmm(url):
-    r = requests.get('http://tool.manmanbuy.com/history.aspx?&url=%s' % url)
+    r = requests.get('http://tool.manmanbuy.com/history.aspx?&url=%s' % url, headers={'user-agent':USER_AGENT})
     ptn = re.search('chart\("(.*)"\)', r.content)
     result = {}
     try:
