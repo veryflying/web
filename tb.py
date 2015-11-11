@@ -21,7 +21,8 @@ def get_tm_prices_from_third(tmall_id):
         return result
 
 def get_from_mmm(url):
-    r = requests.get('http://tool.manmanbuy.com/history.aspx?w=950&h=580&h2=360&m=1&e=1&tofanli=1&url=%s'%url, headers={'referer':'http://tool.manmanbuy.com/historyLowest.aspx?url=%s'%url,
+    r = requests.get('http://tool.manmanbuy.com/history.aspx?w=950&h=580&h2=360&m=1&e=1&tofanli=1&url=%s'%url,
+                     headers={'referer':'http://tool.manmanbuy.com/historyLowest.aspx?url=%s'%url,
                      'user-agent':USER_AGENT})
     ptn = re.search('chart\("(.*)"\)', r.content)
     result = {}
@@ -33,6 +34,13 @@ def get_from_mmm(url):
     except:
         pass
     return result
+
+def get_title(url):
+    r = requests.get(url,
+                     headers={'referer':'http://tool.manmanbuy.com/historyLowest.aspx?url=%s'%url,
+                     'user-agent':USER_AGENT})
+    ptn = re.compile('<title>(.*)</title>', r.content)
+    return ptn.group(1)
 
 
 def short_url_tb(primary_url):
