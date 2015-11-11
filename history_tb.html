@@ -1,0 +1,23 @@
+$def with (result)
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>历史价格</title>
+</head>
+<body>
+<div style="margin-left:600px; margin-top: 100px;">
+$if result is None:
+    <form method="get">
+        <input type="text" name="id">
+        <input type="submit" value="提交">
+    </form>
+$else:
+    $if len(result) == 0:
+        未找到历史价格
+    $else:
+        $for each in result:
+            $ splited = each.split(',')
+            $splited[0]年$splited[1]月$splited[2]日 $result[each] <br>
+</div>
+</body>
+</html>

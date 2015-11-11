@@ -2,14 +2,43 @@
 import web
 import os
 import word
+import tb
+import re
+
 
 urls = (
     '/hello/(.*)', 'Hello',
     '/t/(.*)', 'Translate',
-    '/', 'Index'
+    '/', 'Index',
+    '/tb/.*', 'Taobao'
 )
 
 app = web.application(urls, globals())
+
+
+class Taobao:
+    def __init__(self):
+        pass
+
+
+    def GET(self):
+        user_data = web.input()
+        try:
+            id_ = user_data.id
+        except:
+            id_ = ''
+        if len(id_) == 0:
+            templ = web.template.frender('history_tb.html')
+            return templ(None)
+        # if re.search(r'^\d+$', id_) is None:
+        #     mthd = re.search(r'.*?id=(\d+).*', id_)
+        #     if mthd is None:
+        #         return 'URL´íÎó'
+        #     else:
+        #         id_ = mthd.group(1)
+        result = tb.get_from_mmm(id_)
+        templ = web.template.frender('history_tb.html')
+        return templ(result)
 
 
 class Hello:
