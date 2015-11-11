@@ -36,7 +36,7 @@ class Taobao:
         #         return 'URL´íÎó'
         #     else:
         #         id_ = mthd.group(1)
-        result = tb.get_from_mmm(id_)
+        result = tb.get_from_mmm(tb.short_url_tb(id_))
         templ = web.template.frender('history_tb.html')
         return templ(result)
 
