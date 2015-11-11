@@ -40,7 +40,10 @@ def short_url_tb(primary_url):
         'https?://(item|detail|ershou|shuziitem|game|wt|baoxian|waimai|kezhan.trip|meal|chaoshi|chaoshi.detail|temai.detail|d.life|2|mdetail|detail.ju)\.(taobao|tmall)\.(com|hk)/.*\?(|((?!item_id).)*&)(id|item_id|itemId|mallstItemId|default_item_id|item_num)=(\d+).*'
     )
     mth = r.search(primary_url)
-    return 'http://' + mth.group(1).__str__() + '.' + mth.group(2).__str__() + '.' + mth.group(3).__str__() + '/item.htm?' + mth.group(6).__str__() + '=' + mth.group(7).__str__()
+    try:
+        return 'http://' + mth.group(1).__str__() + '.' + mth.group(2).__str__() + '.' + mth.group(3).__str__() + '/item.htm?' + mth.group(6).__str__() + '=' + mth.group(7).__str__()
+    except:
+        return ''
 
 if __name__ == '__main__':
     print get_from_mmm('https://detail.tmall.com/item.htm?spm=a1z0d.6639537.1997196601.85.wStIhm&id=40486085357')
