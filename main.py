@@ -10,7 +10,7 @@ urls = (
     '/hello/(.*)', 'Hello',
     '/t/(.*)', 'Translate',
     '/', 'Index',
-    '/tb/.*', 'Taobao'
+    '/tb/?.*', 'Taobao'
 )
 
 app = web.application(urls, globals())

@@ -37,7 +37,7 @@ def get_from_mmm(url):
 
 def short_url_tb(primary_url):
     r = re.compile(
-        'https?://(item|detail|ershou|shuziitem|game|wt|baoxian|waimai|kezhan.trip|meal|chaoshi|chaoshi.detail|temai.detail|d.life|2|mdetail|detail.ju)\.(taobao|tmall)\.(com|hk)/.*\?(|((?!item_id).)*&)(id|item_id|itemId|mallstItemId|default_item_id|item_num)=(\d+).*'
+        'https?://(item|detail|ershou|shuziitem|game|wt|baoxian|waimai|kezhan.trip|meal|chaoshi|chaoshi.detail|temai.detail|d.life|2|mdetail|detail.ju|detail.m)\.(taobao|tmall)\.(com|hk)/.*\?(|((?!item_id).)*&)(id|item_id|itemId|mallstItemId|default_item_id|item_num)=(\d+).*'
     )
     mth = r.search(primary_url)
     try:
