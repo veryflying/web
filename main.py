@@ -4,16 +4,40 @@ import os
 import word
 import tb
 import re
+import requests
 
 
 urls = (
     '/hello/(.*)', 'Hello',
     '/t/(.*)', 'Translate',
     '/', 'Index',
-    '/tb/?.*', 'Taobao'
+    '/tb/?.*', 'Taobao',
+    '/proxy/?.*', 'Proxy'
 )
+USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) ' \
+              'AppleWebKit/537.36 (KHTML, like Gecko) ' \
+              'Chrome/44.0.2403.125 Safari/537.36'
+
 
 app = web.application(urls, globals())
+
+
+class Proxy:
+    def __init__(self):
+        pass
+
+
+    def GET(self):
+        try:
+            url = web.input().url
+        except:
+            url = None
+        if url is not None:
+            r = requests.get(url,
+                             headers={'user-agent':USER_AGENT})
+            return r.content
+        else:
+            return '404'
 
 
 class Taobao:
